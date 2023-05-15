@@ -1,19 +1,29 @@
 import MainList from '../components/MainList'
+import BookmarkList from '../components/BookmarkList';
+import { connect } from 'react-redux';
+import Modal from '../components/Modal';
 
-export default function Main({data, bookmarkHandler}){
+const Main = ({modal}) => {
 
   return(
     <div className='Main'>
       <div className='main-container'>
         <div>
           <h3>상품리스트</h3>
-          <MainList data={data} bookmarkHandler={bookmarkHandler}/>
+          <MainList/>
         </div>
 
         <div>
           <h3>북마크리스트</h3>
+          <BookmarkList />
         </div>
       </div>
+
+      {
+        modal && <Modal />
+      }
     </div>
   )
 }
+
+export default connect((state)=> ({modal : state.bookmark.modal}))(Main);

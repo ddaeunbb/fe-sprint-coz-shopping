@@ -94,7 +94,7 @@ a{
   background-color: white;
   border-top: 1px solid #d9d9d9;
   width: 100%;
-  height: 70px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,13 +105,13 @@ a{
 
 .Footer p {
   margin: 0;
-  font-size: 12px;
+  font-size: 10px;
   color: #7f7f7f;
 }
 
 .Main{
   width: 100%;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 130px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,31 +122,147 @@ a{
   height: 90%;
   display: flex;
   flex-direction: column;
+  gap: 50px;
 }
 
-.MainList{
+.MainList, .BookmarkList{
+  width: 100%;
   display: flex;
-  gap: 10px;
-  justify-content: center;
+  gap: 35px;
+  justify-content: left;
 }
 
 .ItemComponent{
   width: 264px;
-  height: 210px;
-  border-radius: 10px;
+  height: 180px;
+  cursor: pointer;
 }
 
 .item-container{
   width: 100%;
-  height: 85%;
+  height: 100%;
   background-size: cover;
   position: relative;
+  border-radius: 10px;
 }
 
 .bookmark-img{
   width: 30px;
   height: 30px;
   position: absolute;
-  top: 135px;
+  top: 140px;
+  right: 15px;
+  transition: all 0.3s;
+  z-index: 90;
+}
+
+.bookmark-img:hover, .bookmark-modal-img:hover{
+  filter: brightness(80%);
+}
+
+.bookmark-modal-img{
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s;
+  z-index: 90;
+}
+
+.category-container h4{
+  margin: 0;
+  margin-top: 10px;
+}
+
+.exhibition-container{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.exhibition-container h4{
+  margin: 0;
+}
+.exhibition-container p{
+  margin: 0;
+  font-size: 13px;
+}
+
+.brand-container, .product-container{
+  display: flex;
+  padding: 0px 5px;
+  margin-top: 10px;
+}
+
+.brand-container h4, .product-container h4{
+  flex-grow: 1;
+  margin: 0;
+}
+.brand-container div, .product-container div{
+  text-align: right;
+}
+
+.brand-container p, .product-container p{
+  font-size: 13px;
+  margin: 0;
+}
+
+.product-container div h4{
+  color: blue;
+}
+
+.Modal{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.modal-background{
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  opacity: 0.5;
+  filter: blur(5px);
+  position: absolute;
+  margin: 0;
+}
+
+.modal-content{
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  z-index: 1000;
+  top: 30%;
+  left: 35%;
+  border-radius: 10px;
+}
+
+.modal-bookmark-container{
+  padding: 0px 10px;
+  font-size: 13px;
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn{
+  width: 30px;
+  height: 30px;
+  position: absolute;
   right: 10px;
+  top: 10px;
+  border: none;
+  font-size: 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: #ffffffb8;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }

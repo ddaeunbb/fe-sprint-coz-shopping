@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import { connect } from 'react-redux'
 import ItemComponent from './ItemComponent'
 
-export default function MainList({data, bookmarkHandler}){
-  const [mainItem, setMainItem] = useState(data.slice(0,4));
+
+const MainList = ({data}) => {
 
   return (
     <div className='MainList'>
       {
-        mainItem.map((el, idx)=> (<ItemComponent key={el.id} eachData={el} bookmarkHandler={bookmarkHandler}/>))
+        data.slice(0,4).map(el => (<ItemComponent key={el.id} eachData={el}/>))
       }
     </div>
   )
 }
+
+export default connect(state=> ({data : state.bookmark.data}))(MainList)
