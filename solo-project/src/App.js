@@ -2,6 +2,7 @@ import './App.css';
 import Nav from './components/Nav'
 import Footer from './components/Footer';
 import Main from './pages/Main';
+import ProductList from './pages/ProductList'
 import { Routes, Route} from 'react-router-dom';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
@@ -21,7 +22,8 @@ const App = ({data, setting})=>{
     <div>
       <Nav/>
       <Routes>
-        <Route path='/' element={<Main/> }/>
+        <Route path='/' element={<Main/>} />
+        <Route path='/products/list' element={<ProductList/>} />
       </Routes>
       <Footer />
     </div>

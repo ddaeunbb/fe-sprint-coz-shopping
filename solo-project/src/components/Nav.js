@@ -10,11 +10,11 @@ export default function Nav(){
     <div className='Navbar'>
       <div className='logo-container'>
         <div className='left-logo'>
-          <Link to="/"><img className='logo' src={process.env.PUBLIC_URL + 'codestates-logo.png' }/></Link>
+          <Link to="/"><img alt="코드스테이츠로고" className='logo' src={process.env.PUBLIC_URL + 'codestates-logo.png' }/></Link>
           <Link to="/"><h2>COZ Shopping</h2></Link>
         </div>
         <div className='right-logo' onClick={()=>{ setIsOpen(!isOpen)}}>
-          <img className='hamburger' src={process.env.PUBLIC_URL + 'hamburger.png'}/>
+          <img alt="햄버거버튼" className='hamburger' src={process.env.PUBLIC_URL + 'hamburger.png'}/>
         </div>
       </div>
       { isOpen ? <NavModal /> : null}

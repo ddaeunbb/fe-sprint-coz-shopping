@@ -20,10 +20,10 @@ const Modal = ({modalData, bookmarkCheck, modalInfo, modalSwitch}) => {
         <div className='modal-bookmark-container'>
         <img className='bookmark-modal-img'
         src={`${modalData.bookmark ? 
-        process.env.PUBLIC_URL + 'bookmark-on.png'
-        : process.env.PUBLIC_URL + 'bookmark-off.png'}`}
+        process.env.PUBLIC_URL + '/bookmark-on.png'
+        : process.env.PUBLIC_URL + '/bookmark-off.png'}`}
         onClick={modalHandler}
-        />
+        alt="북마크별사진" />
         <h3>{modalData.title ? modalData.title : modalData.brand_name}</h3>
         </div>
       </div>
