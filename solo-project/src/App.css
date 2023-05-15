@@ -1,0 +1,268 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Pretendard-Regular';
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('../public/background.png');
+  background-size: 20%;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.Navbar{
+  width: 100%;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  position: sticky;
+}
+
+.logo-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.left-logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+  flex-grow: 1;
+}
+
+.logo{
+  width: 60px;
+  cursor: pointer;
+}
+
+.right-logo{
+  margin-right: 20px;
+}
+
+.hamburger{
+  width: 60px;
+  cursor: pointer;
+}
+
+.NavModal{
+  width: 200px;
+  height: 120px;
+  position: absolute;
+  right : 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navmodal-list{
+  flex-grow: 1;
+  padding-left: 20px;
+  margin: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  transition: all 0.1s;
+}
+.navmodal-list:not(:last-child){
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.navmodal-list:hover{
+  background-color: #eee;
+}
+
+.Footer{
+  background-color: white;
+  border-top: 1px solid #d9d9d9;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.Footer p {
+  margin: 0;
+  font-size: 10px;
+  color: #7f7f7f;
+}
+
+.Main{
+  width: 100%;
+  height: calc(100vh - 130px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container{
+  width: 80%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.MainList, .BookmarkList{
+  width: 100%;
+  display: flex;
+  gap: 35px;
+  justify-content: left;
+}
+
+.ItemComponent{
+  width: 264px;
+  height: 180px;
+  cursor: pointer;
+}
+
+.item-container{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  position: relative;
+  border-radius: 10px;
+}
+
+.bookmark-img{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 140px;
+  right: 15px;
+  transition: all 0.3s;
+  z-index: 90;
+}
+
+.bookmark-img:hover, .bookmark-modal-img:hover{
+  filter: brightness(80%);
+}
+
+.bookmark-modal-img{
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s;
+  z-index: 90;
+}
+
+.category-container h4{
+  margin: 0;
+  margin-top: 10px;
+}
+
+.exhibition-container{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.exhibition-container h4{
+  margin: 0;
+}
+.exhibition-container p{
+  margin: 0;
+  font-size: 13px;
+}
+
+.brand-container, .product-container{
+  display: flex;
+  padding: 0px 5px;
+  margin-top: 10px;
+}
+
+.brand-container h4, .product-container h4{
+  flex-grow: 1;
+  margin: 0;
+}
+.brand-container div, .product-container div{
+  text-align: right;
+}
+
+.brand-container p, .product-container p{
+  font-size: 13px;
+  margin: 0;
+}
+
+.product-container div h4{
+  color: blue;
+}
+
+.Modal{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.modal-background{
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  opacity: 0.5;
+  filter: blur(5px);
+  position: absolute;
+  margin: 0;
+}
+
+.modal-content{
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  z-index: 1000;
+  top: 30%;
+  left: 35%;
+  border-radius: 10px;
+}
+
+.modal-bookmark-container{
+  padding: 0px 10px;
+  font-size: 13px;
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+  font-size: 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: #ffffffb8;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
