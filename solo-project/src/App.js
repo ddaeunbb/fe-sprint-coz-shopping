@@ -2,13 +2,17 @@ import './App.css';
 import Nav from './components/Nav'
 import Footer from './components/Footer';
 import Main from './pages/Main';
+import ProductList from './pages/ProductList'
+import Bookmark from './pages/Bookmark';
 import { Routes, Route} from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { setting } from './modules/bookmarkSlice';
 import axios from 'axios'
 
 const App = ({data, setting})=>{
+
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(()=>{
     axios('http://cozshopping.codestates-seb.link/api/v1/products')
@@ -19,9 +23,11 @@ const App = ({data, setting})=>{
 
   return (
     <div>
-      <Nav/>
+      <Nav isOpen={isOpen} setIsOpen={setIsOpen}/>
       <Routes>
-        <Route path='/' element={<Main/> }/>
+        <Route path='/' element={<Main setIsOpen={setIsOpen}/>} />
+        <Route path='/products/list' element={<ProductList setIsOpen={setIsOpen}/>} />
+        <Route path='bookmark' element={<Bookmark setIsOpen={setIsOpen}/>} />
       </Routes>
       <Footer />
     </div>

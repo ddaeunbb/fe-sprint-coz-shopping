@@ -20,14 +20,14 @@ const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch}) => {
         style={{backgroundImage: 
         `url(${eachData.image_url ? 
         eachData.image_url 
-        : process.env.PUBLIC_URL + 'defaultImage.jpeg'})`}}>
+        : process.env.PUBLIC_URL + '/defaultImage.jpeg'})`}}>
 
           <img className='bookmark-img' 
           src={`${eachData.bookmark ? 
-          process.env.PUBLIC_URL + 'bookmark-on.png'
-          : process.env.PUBLIC_URL + 'bookmark-off.png'}`}
+          process.env.PUBLIC_URL + '/bookmark-on.png'
+          : process.env.PUBLIC_URL + '/bookmark-off.png'}`}
           onClick={(e)=> bookmarkHandler(e) }
-          />
+          alt="북마크별사진" />
         </div>
         <div className='category-container'>
           <h4>#{eachData.title}</h4>
@@ -42,14 +42,14 @@ const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch}) => {
       style={{backgroundImage: 
       `url(${eachData.image_url ? 
       eachData.image_url 
-      : process.env.PUBLIC_URL + 'defaultImage.jpeg'})`}}>
+      : process.env.PUBLIC_URL + '/defaultImage.jpeg'})`}}>
   
         <img className='bookmark-img' 
         src={`${eachData.bookmark ? 
-        process.env.PUBLIC_URL + 'bookmark-on.png'
-        : process.env.PUBLIC_URL + 'bookmark-off.png'}`}
+        process.env.PUBLIC_URL + '/bookmark-on.png'
+        : process.env.PUBLIC_URL + '/bookmark-off.png'}`}
         onClick={(e)=> bookmarkHandler(e) }
-        />
+        alt="북마크별사진" />
       </div>
       <div className='exhibition-container'>
         <h4>{eachData.title}</h4>
@@ -64,14 +64,14 @@ const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch}) => {
         style={{backgroundImage: 
         `url(${eachData.brand_image_url ? 
         eachData.brand_image_url
-        : process.env.PUBLIC_URL + 'defaultImage.jpeg'})`}}>
+        : process.env.PUBLIC_URL + '/defaultImage.jpeg'})`}}>
   
         <img className='bookmark-img' 
         src={`${eachData.bookmark ? 
-        process.env.PUBLIC_URL + 'bookmark-on.png'
-        : process.env.PUBLIC_URL + 'bookmark-off.png'}`}
+        process.env.PUBLIC_URL + '/bookmark-on.png'
+        : process.env.PUBLIC_URL + '/bookmark-off.png'}`}
         onClick={(e)=> bookmarkHandler(e) }
-        />
+        alt="북마크별사진" />
       </div>
       <div className='brand-container'>
         <h4>{eachData.brand_name}</h4>
@@ -89,14 +89,14 @@ const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch}) => {
       style={{backgroundImage: 
       `url(${eachData.image_url ? 
       eachData.image_url
-      : process.env.PUBLIC_URL + 'defaultImage.jpeg'})`}}>
+      : process.env.PUBLIC_URL + '/defaultImage.jpeg'})`}}>
 
       <img className='bookmark-img' 
       src={`${eachData.bookmark ? 
-      process.env.PUBLIC_URL + 'bookmark-on.png'
-      : process.env.PUBLIC_URL + 'bookmark-off.png'}`}
+      process.env.PUBLIC_URL + '/bookmark-on.png'
+      : process.env.PUBLIC_URL + '/bookmark-off.png'}`}
       onClick={(e)=> bookmarkHandler(e) }
-      />
+      alt="북마크별사진" />
     </div>
     <div className='product-container'>
       <h4>{eachData.title}</h4>

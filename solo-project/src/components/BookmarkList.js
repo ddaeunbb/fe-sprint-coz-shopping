@@ -7,7 +7,7 @@ const BookmarkList = ({data}) => {
   return (
     <div className='BookmarkList'>
       {
-        data.filter(el => el.bookmark).map(el => (<ItemComponent key={el.id} eachData={el}/>))
+        data.filter(el => el.bookmark).slice(0,4).map(el => (<ItemComponent key={el.id} eachData={el}/>))
       }
     </div>
   )
