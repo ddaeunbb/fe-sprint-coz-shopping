@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { bookmarkCheck, modalInfo, modalSwitch } from '../modules/bookmarkSlice';
+import { bookmarkCheck, modalInfo, modalSwitch, toastSwitch} from '../modules/bookmarkSlice';
 
-const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch}) => {
+const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch, toastSwitch}) => {
 
   const modalHandler = () => {
     modalInfo(eachData.id);
@@ -11,6 +11,7 @@ const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch}) => {
   const bookmarkHandler = (e) => {
     e.stopPropagation();
     bookmarkCheck(eachData.id);
+    toastSwitch();
   }
 
   if (eachData.type === 'Category'){
@@ -111,4 +112,4 @@ const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch}) => {
 }
 
 
-export default connect(state => ({data : state.bookmark.data}), { bookmarkCheck, modalInfo, modalSwitch })(ItemComponent);
+export default connect(state => ({data : state.bookmark.data}), { bookmarkCheck, modalInfo, modalSwitch, toastSwitch })(ItemComponent);
