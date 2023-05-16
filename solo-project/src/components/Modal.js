@@ -10,7 +10,7 @@ const Modal = ({modalData, bookmarkCheck, modalInfo, modalSwitch}) => {
 
   return (
     <div className='Modal'>
-      <div className='modal-background'></div>
+      <div className='modal-background' onClick={modalSwitch}></div>
       <div className='modal-content' 
       style={{backgroundImage : `url(${ modalData.image_url ? 
       modalData.image_url : modalData.brand_image_url})`}}>

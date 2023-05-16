@@ -222,14 +222,16 @@ a{
   background-color: white;
   opacity: 0.5;
   filter: blur(5px);
-  position: absolute;
+  position: fixed;
   margin: 0;
+  z-index: 500;
+  top: 0;
 }
 
 .modal-content{
   width: 500px;
   height: 300px;
-  position: absolute;
+  position: fixed;
   background-size: cover;
   background-position: center;
   z-index: 1000;
@@ -272,7 +274,7 @@ a{
   flex-direction: column;
   align-items: center;
   padding: 20px 10px;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 }
 
 .filter-tab{
@@ -300,13 +302,13 @@ a{
 }
 
 .product-list-display{
-  width: 58vw; 
+  width: 80vw;
 }
 
-.product-list-displayp-container{
+.product-list-display-container{
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: left;
 }
 

@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NavModal from './NavModal';
 
 
-export default function Nav(){
-  const [ isOpen, setIsOpen ] = useState(false);
+export default function Nav({isOpen, setIsOpen}){
 
   return (
     <div className='Navbar'>
@@ -17,7 +15,7 @@ export default function Nav(){
           <img alt="햄버거버튼" className='hamburger' src={process.env.PUBLIC_URL + 'hamburger.png'}/>
         </div>
       </div>
-      { isOpen ? <NavModal /> : null}
+      { isOpen && <NavModal setIsOpen={setIsOpen}/>}
     </div>
   )
 }
