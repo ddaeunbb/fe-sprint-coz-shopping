@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect} from 'react';
 import ItemComponent from './ItemComponent';
 
 const ProductFilter = ({ type, data, page, setPage}) => {
@@ -19,7 +19,7 @@ const ProductFilter = ({ type, data, page, setPage}) => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [page]);
+  }, [page, setPage]);
 
   if (type === 'Brand') {
     return (

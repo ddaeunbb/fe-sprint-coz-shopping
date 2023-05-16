@@ -315,3 +315,25 @@ a{
 .product-list-display div .ItemComponent{
   margin-bottom: 50px;
 }
+
+.AlramToast{
+  padding: 10px 30px;
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 2000;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.AlramToast img {
+  width: 30px;
+  height: 30px;
+}

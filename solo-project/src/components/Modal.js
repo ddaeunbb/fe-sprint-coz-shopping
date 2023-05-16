@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
-import { bookmarkCheck, modalInfo, modalSwitch} from '../modules/bookmarkSlice';
+import { bookmarkCheck, modalInfo, modalSwitch, toastSwitch} from '../modules/bookmarkSlice';
 
-const Modal = ({modalData, bookmarkCheck, modalInfo, modalSwitch}) => {
+const Modal = ({modalData, bookmarkCheck, modalInfo, modalSwitch, toastSwitch}) => {
 
   const modalHandler = ()=> {
     bookmarkCheck(modalData.id);
     modalInfo(modalData.id);
+    toastSwitch();
   }
 
   return (
@@ -31,4 +32,4 @@ const Modal = ({modalData, bookmarkCheck, modalInfo, modalSwitch}) => {
   )
 }
 
-export default connect((state)=> ({ modalData : state.bookmark.modalData}), { bookmarkCheck, modalInfo, modalSwitch})(Modal)
+export default connect((state)=> ({ modalData : state.bookmark.modalData}), { bookmarkCheck, modalInfo, modalSwitch, toastSwitch})(Modal)

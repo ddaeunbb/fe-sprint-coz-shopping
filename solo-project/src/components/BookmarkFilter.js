@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect} from 'react';
 import ItemComponent from './ItemComponent';
 
 const BookmarkFilter = ({type, data, page, setPage})=>{
@@ -19,7 +19,7 @@ const BookmarkFilter = ({type, data, page, setPage})=>{
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [page]);
+  }, [setPage, page]);
 
   if (type === 'Brand'){
     return (

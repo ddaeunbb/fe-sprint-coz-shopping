@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const bookmarkSlice = createSlice({
   name : 'bookmarkSlice',
-  initialState : { data : [], modal: false, modalData: {}},
+  initialState : { data : [], modalData: {}, modal: false, clicked : false, toastContent : false},
   reducers : {
     setting : (state, action) => {
       state.data = action.payload;
@@ -10,7 +10,13 @@ const bookmarkSlice = createSlice({
     bookmarkCheck : (state, action) => {
       state.data = state.data.map(el => {
         if ( el.id === action.payload){
-          el.bookmark === undefined  ? el.bookmark = true : el.bookmark = !el.bookmark;
+          if (el.bookmark === undefined){
+            el.bookmark = true;
+            state.toastContent = true;
+          }else {
+            el.bookmark = !el.bookmark;
+            state.toastContent = el.bookmark;
+          }
         }
         return el;
       })
@@ -22,9 +28,14 @@ const bookmarkSlice = createSlice({
     modalInfo : (state, action) => {
       state.modalData = state.data.filter(el => el.id === action.payload)[0];
     },
+
+    toastSwitch : (state) => {
+      console.log('다은');
+      state.clicked = !state.clicked;
+    },
   }
 })
 
 
 export default bookmarkSlice;
-export const { setting, bookmarkCheck, modalSwitch, modalInfo} = bookmarkSlice.actions; 
+export const { setting, bookmarkCheck, modalSwitch, modalInfo, toastSwitch} = bookmarkSlice.actions; 
