@@ -18,7 +18,18 @@ const App = ({data, setting, clicked})=>{
   useEffect(()=>{
     axios('http://cozshopping.codestates-seb.link/api/v1/products')
     .then(res => {
-      setting([...res.data]);
+      let bookmark = localStorage.getItem('bookmark');
+      if (bookmark === null) {
+        setting([...res.data])
+      } else {
+        bookmark = JSON.parse(bookmark);
+        let data = res.data;
+        data = data.map(el => {
+          if(bookmark.indexOf(el.id) !== -1) el.bookmark = true;
+          return el 
+        });
+        setting(data);
+      }
     })
   }, [setting])
 

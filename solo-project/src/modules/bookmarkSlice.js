@@ -30,7 +30,6 @@ const bookmarkSlice = createSlice({
     },
 
     toastSwitch : (state) => {
-      console.log('다은');
       state.clicked = !state.clicked;
     },
   }
