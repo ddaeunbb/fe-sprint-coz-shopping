@@ -2,6 +2,11 @@ import { connect } from 'react-redux';
 import { useRef, useEffect} from 'react';
 import ItemComponent from './ItemComponent';
 
+const NAV_EXHIBITION = 'Exhibition';
+const NAV_BRAND = 'Brand';
+const NAV_PRODUCT = 'Product';
+const NAV_CATEGORY = 'category';
+
 const ProductFilter = ({ type, data, page, setPage}) => {
   const scrollRef = useRef(0);
 
@@ -21,7 +26,7 @@ const ProductFilter = ({ type, data, page, setPage}) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [page, setPage]);
 
-  if (type === 'Brand') {
+  if (type === NAV_BRAND) {
     return (
       <div className='product-list-display'>
         <div className='product-list-display-container'>
@@ -31,7 +36,7 @@ const ProductFilter = ({ type, data, page, setPage}) => {
         </div>
       </div>
     );
-  } else if (type === 'Product') {
+  } else if (type === NAV_PRODUCT) {
     return (
       <div className='product-list-display'>
         <div className='product-list-display-container'>
@@ -41,7 +46,7 @@ const ProductFilter = ({ type, data, page, setPage}) => {
         </div>
       </div>
     );
-  } else if (type === 'Category') {
+  } else if (type === NAV_CATEGORY) {
     return (
       <div className='product-list-display'>
         <div className='product-list-display-container'>
@@ -51,7 +56,7 @@ const ProductFilter = ({ type, data, page, setPage}) => {
         </div>
       </div>
     );
-  } else if (type === 'Exhibition') {
+  } else if (type === NAV_EXHIBITION) {
     return (
       <div className='product-list-display'>
         <div className='product-list-display-container'>
@@ -65,9 +70,11 @@ const ProductFilter = ({ type, data, page, setPage}) => {
     return (
       <div className='product-list-display'>
         <div className='product-list-display-container'>
-          {[...data].slice(0, page * 8).map((el) => (
+          {
+            data.slice(0, page * 8).map((el) => (
             <ItemComponent key={el.id} eachData={el} />
-          ))}
+            ))
+          }
         </div>
       </div>
     );
