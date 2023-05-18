@@ -1,117 +1,67 @@
 import { connect } from 'react-redux';
 import { localStorageLogic } from '../helpers/localStorageLogic';
 import { bookmarkCheck, modalInfo, modalSwitch, toastSwitch} from '../modules/bookmarkSlice';
+import ItemComponentSet from './ItemComponentSet';
 
-const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch, toastSwitch}) => {
+const ItemComponent = ({eachData}) => {
 
-  const modalHandler = () => {
-    modalInfo(eachData.id);
-    modalSwitch();
-  }
+  const NAV_CATEGORY = 'Category';
+  const NAV_EXHIBITON = 'Exhibition';
+  const NAV_PRODUCT = 'Product';
+  const NAV_BRAND = 'Brand';
+  const publicUrl = process.env.PUBLIC_URL;
 
-  const bookmarkHandler = (e) => {
-    e.stopPropagation();
-    bookmarkCheck(eachData.id);
-    toastSwitch();
-    localStorageLogic(e, eachData);
-  }
-
-  if (eachData.type === 'Category'){
-    return (
+  switch(eachData.type){
+    case NAV_CATEGORY :
+      return (
       <div className='ItemComponent'>
-        <div className='item-container' onClick={modalHandler} 
-        style={{backgroundImage: 
-        `url(${eachData.image_url ? 
-        eachData.image_url 
-        : process.env.PUBLIC_URL + '/defaultImage.jpeg'})`}}>
-
-          <img className='bookmark-img' 
-          src={`${eachData.bookmark ? 
-          process.env.PUBLIC_URL + '/bookmark-on.png'
-          : process.env.PUBLIC_URL + '/bookmark-off.png'}`}
-          onClick={(e)=> bookmarkHandler(e) }
-          alt="북마크별사진" />
-        </div>
+        <ItemComponentSet eachData={eachData} />
         <div className='category-container'>
           <h4>#{eachData.title}</h4>
         </div>
       </div>
-    )
-  } else if (eachData.type === 'Exhibition'){
-    return (
-      <div className='ItemComponent'>
-        
-      <div className='item-container' onClick={modalHandler} 
-      style={{backgroundImage: 
-      `url(${eachData.image_url ? 
-      eachData.image_url 
-      : process.env.PUBLIC_URL + '/defaultImage.jpeg'})`}}>
-  
-        <img className='bookmark-img' 
-        src={`${eachData.bookmark ? 
-        process.env.PUBLIC_URL + '/bookmark-on.png'
-        : process.env.PUBLIC_URL + '/bookmark-off.png'}`}
-        onClick={(e)=> bookmarkHandler(e) }
-        alt="북마크별사진" />
-      </div>
-      <div className='exhibition-container'>
-        <h4>{eachData.title}</h4>
-        <p>{eachData.sub_title}</p>
-      </div>
-    </div>
-    )
-  } else if (eachData.type === 'Brand'){
-    return (
-      <div className='ItemComponent'>
-        <div className='item-container' onClick={modalHandler}  
-        style={{backgroundImage: 
-        `url(${eachData.brand_image_url ? 
-        eachData.brand_image_url
-        : process.env.PUBLIC_URL + '/defaultImage.jpeg'})`}}>
-  
-        <img className='bookmark-img' 
-        src={`${eachData.bookmark ? 
-        process.env.PUBLIC_URL + '/bookmark-on.png'
-        : process.env.PUBLIC_URL + '/bookmark-off.png'}`}
-        onClick={(e)=> bookmarkHandler(e) }
-        alt="북마크별사진" />
-      </div>
-      <div className='brand-container'>
-        <h4>{eachData.brand_name}</h4>
-        <div>
-          <h4>관심고객수</h4>
-          <p>00,000</p>
+      )
+    
+    case NAV_EXHIBITON : 
+      return (
+        <div className='ItemComponent'>
+        <ItemComponentSet eachData={eachData}/>
+        <div className='exhibition-container'>
+          <h4>{eachData.title}</h4>
+          <p>{eachData.sub_title}</p>
         </div>
       </div>
-    </div>
-    )
-  } else {
-    return (
-      <div className='ItemComponent'>
-      <div className='item-container' onClick={modalHandler} 
-      style={{backgroundImage: 
-      `url(${eachData.image_url ? 
-      eachData.image_url
-      : process.env.PUBLIC_URL + '/defaultImage.jpeg'})`}}>
+      )
 
-      <img className='bookmark-img' 
-      src={`${eachData.bookmark ? 
-      process.env.PUBLIC_URL + '/bookmark-on.png'
-      : process.env.PUBLIC_URL + '/bookmark-off.png'}`}
-      onClick={(e)=> bookmarkHandler(e) }
-      alt="북마크별사진" />
-    </div>
-    <div className='product-container'>
-      <h4>{eachData.title}</h4>
-      <div>
-        <h4>{eachData.discountPercentage}%</h4>
-        <p>{eachData.price}원</p>
+    case NAV_BRAND : 
+      return(
+      <div className='ItemComponent'>
+        <ItemComponentSet eachData={eachData}/>
+        <div className='brand-container'>
+          <h4>{eachData.brand_name}</h4>
+          <div>
+            <h4>관심고객수</h4>
+            <p>00,000</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-    )
+      )
+    
+    case NAV_PRODUCT :
+      return(
+        <div className='ItemComponent'>
+          <ItemComponentSet eachData={eachData}/>
+          <div className='product-container'>
+            <h4>{eachData.title}</h4>
+            <div>
+              <h4>{eachData.discountPercentage}%</h4>
+              <p>{eachData.price}원</p>
+            </div>
+          </div>
+        </div>
+      )
   }
 }
 
 
-export default connect(state => ({data : state.bookmark.data}), { bookmarkCheck, modalInfo, modalSwitch, toastSwitch })(ItemComponent);
+export default connect(state => ({data : state.bookmark.data}))(ItemComponent);
