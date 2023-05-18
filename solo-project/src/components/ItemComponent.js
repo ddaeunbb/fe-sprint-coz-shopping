@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { localStorageLogic } from '../helpers/localStorageLogic';
 import { bookmarkCheck, modalInfo, modalSwitch, toastSwitch} from '../modules/bookmarkSlice';
 
 const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch, toastSwitch}) => {
@@ -12,19 +13,7 @@ const ItemComponent = ({eachData, bookmarkCheck, modalInfo, modalSwitch, toastSw
     e.stopPropagation();
     bookmarkCheck(eachData.id);
     toastSwitch();
-    if ( e.target.src === `http://localhost:3000/bookmark-on.png`){
-      let bookmark = JSON.parse(localStorage.getItem('bookmark'));
-      bookmark = bookmark.filter(el => el !== eachData.id);
-      localStorage.setItem('bookmark', JSON.stringify(bookmark));
-    } else {
-      let bookmark = localStorage.getItem('bookmark');
-      if (bookmark === null) localStorage.setItem('bookmark', JSON.stringify([eachData.id]));
-      else {
-        bookmark = JSON.parse(bookmark);
-        bookmark.push(eachData.id);
-        localStorage.setItem('bookmark', JSON.stringify(bookmark));
-      }
-    }
+    localStorageLogic(e, eachData);
   }
 
   if (eachData.type === 'Category'){
