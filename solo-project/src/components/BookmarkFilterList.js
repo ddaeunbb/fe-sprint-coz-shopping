@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { useRef, useEffect } from "react";
 import ItemComponent from "./ItemComponent";
 import BookmarkFilterItem from "./BookmarkFilterItem";
+import { unlimitScroll } from '../helpers/unlimitScroll';
 
 const NAV_TOTAL = 'Total';
 
@@ -9,20 +10,14 @@ const BookmarkFilterList = ({ type, data, page, setPage }) => {
   const scrollRef = useRef(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const scrollListener = () => {
       scrollRef.current = window.scrollY;
-      const scrollPosition =
-        window.innerHeight + document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition === scrollHeight) {
-        setPage(page + 1);
-      }
+      unlimitScroll(page, setPage);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [setPage, page]);
+    window.addEventListener("scroll", scrollListener);
+    return () => window.removeEventListener("scroll", scrollListener);
+  }, [page, setPage]);
 
   switch (type) {
     case NAV_TOTAL :
