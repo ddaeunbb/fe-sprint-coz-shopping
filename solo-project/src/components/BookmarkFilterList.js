@@ -3,10 +3,7 @@ import { useRef, useEffect } from "react";
 import ItemComponent from "./ItemComponent";
 import BookmarkFilterItem from "./BookmarkFilterItem";
 
-const NAV_EXHIBITION = "Exhibition";
-const NAV_BRAND = "Brand";
-const NAV_PRODUCT = "Product";
-const NAV_CATEGORY = "category";
+const NAV_TOTAL = 'Total';
 
 const BookmarkFilterList = ({ type, data, page, setPage }) => {
   const scrollRef = useRef(0);
@@ -28,13 +25,7 @@ const BookmarkFilterList = ({ type, data, page, setPage }) => {
   }, [setPage, page]);
 
   switch (type) {
-    case NAV_BRAND:
-    case NAV_CATEGORY:
-    case NAV_PRODUCT:
-    case NAV_EXHIBITION:
-      return <BookmarkFilterItem page={page} type={type} />;
-
-    default:
+    case NAV_TOTAL :
       return (
         <div className="product-list-display">
           <div className="product-list-display-container">
@@ -47,6 +38,9 @@ const BookmarkFilterList = ({ type, data, page, setPage }) => {
           </div>
         </div>
       );
+
+    default:
+      return <BookmarkFilterItem page={page} type={type} />;
   }
 };
 

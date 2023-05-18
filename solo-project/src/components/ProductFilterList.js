@@ -3,10 +3,7 @@ import { useRef, useEffect } from "react";
 import ProductFilterItem from "./ProductFilterItem";
 import ItemComponent from "./ItemComponent";
 
-const NAV_EXHIBITION = "Exhibition";
-const NAV_BRAND = "Brand";
-const NAV_PRODUCT = "Product";
-const NAV_CATEGORY = "category";
+const NAV_TOTAL = 'Total';
 
 const ProductFilterList = ({ type, data, page, setPage }) => {
   const scrollRef = useRef(0);
@@ -28,13 +25,7 @@ const ProductFilterList = ({ type, data, page, setPage }) => {
   }, [page, setPage]);
 
   switch (type) {
-    case NAV_BRAND:
-    case NAV_CATEGORY:
-    case NAV_PRODUCT:
-    case NAV_EXHIBITION:
-      return <ProductFilterItem page={page} type={type} />;
-
-    default:
+    case NAV_TOTAL:
       return (
         <div className="product-list-display">
           <div className="product-list-display-container">
@@ -44,6 +35,8 @@ const ProductFilterList = ({ type, data, page, setPage }) => {
           </div>
         </div>
       );
+    default:
+      return <ProductFilterItem page={page} type={type} />;
   }
 };
 
