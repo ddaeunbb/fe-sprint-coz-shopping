@@ -2,6 +2,7 @@
 
 ### 📁 폴더 구조 (src)
 * components (컴포넌트들)
+* helpers(재사용되는 로직)
 * modules (redux관련 폴더)
   * index.js (리듀서)
   * bookmarkSlice.js (액션객체)
