@@ -32,4 +32,7 @@
 <br>
 
 ###Storybook 구현
-https://docs.google.com/presentation/d/1E028d-X0rWmJpuncXOSAaPFPVFVrjzwVKO5ivYOiaYs/edit#slide=id.p
+<br>
+<a>https://docs.google.com/presentation/d/1E028d-X0rWmJpuncXOSAaPFPVFVrjzwVKO5ivYOiaYs/edit#slide=id.p</a>
+<br>
+npm run storybook
