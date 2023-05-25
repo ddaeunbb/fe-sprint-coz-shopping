@@ -28,3 +28,8 @@
 ![bookmarkonoff](https://github.com/ddaeunbb/fe-sprint-coz-shopping/assets/82816029/da0ae988-296d-446e-9563-8c95782cf4f1)
 * 무한 스크롤
 (gif 파일이 너무 커서 기능 구현만 적었습니다.)
+---
+<br>
+
+###Storybook 구현
+https://docs.google.com/presentation/d/1E028d-X0rWmJpuncXOSAaPFPVFVrjzwVKO5ivYOiaYs/edit#slide=id.p
