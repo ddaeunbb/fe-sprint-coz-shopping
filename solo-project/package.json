@@ -24,7 +24,8 @@
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "token": "token-transformer src/tokens/tokens.json src/tokens/global.json global --expandTypography=true --expandShadow=true --expandComposition=true --expandBorder=true"
+    "token": "token-transformer src/tokens/tokens.json src/tokens/global.json global --expandTypography=true --expandShadow=true --expandComposition=true --expandBorder=true",
+    "chromatic": "npx chromatic --project-token=chpt_f28523ef4012153"
   },
   "eslintConfig": {
     "extends": [
@@ -55,9 +56,12 @@
     "@storybook/react-webpack5": "^7.0.17",
     "@storybook/testing-library": "^0.0.14-next.2",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.17.4",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.17",
     "webpack": "^5.84.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "solo-project@0.1.0"
 }
